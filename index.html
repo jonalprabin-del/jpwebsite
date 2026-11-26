@@ -1,0 +1,916 @@
+```html
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JP Media Kuzhithurai | Photography & Videography</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Playfair Display (Luxury Serif), Great Vibes (Script), Plus Jakarta Sans & Noto Sans Tamil -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Noto+Sans+Tamil:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Noto Sans Tamil', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        script: ['Great Vibes', 'cursive'],
+                    },
+                    colors: {
+                        jp: {
+                            dark: '#140404',
+                            maroon: '#2b0808',
+                            crimson: '#5c0e14',
+                            gold: '#eab308',
+                            goldLight: '#fde047',
+                            goldDark: '#ca8a04',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #ffffff;
+            color: #18181b;
+            scroll-behavior: smooth;
+        }
+        .gold-gradient-text {
+            background: linear-gradient(to right, #fde047, #eab308, #ca8a04);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-btn {
+            background: linear-gradient(135deg, #facc15 0%, #eab308 50%, #ca8a04 100%);
+        }
+        .gold-btn:hover {
+            background: linear-gradient(135deg, #fde047 0%, #facc15 50%, #eab308 100%);
+        }
+        .maroon-gradient {
+            background: linear-gradient(135deg, #3b070c 0%, #1d0406 100%);
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        /* Stacked Folder Effect */
+        .folder-card {
+            position: relative;
+        }
+        .folder-card::before {
+            content: '';
+            position: absolute;
+            top: -7px;
+            left: 16px;
+            right: 16px;
+            height: 12px;
+            background: #3b070c;
+            border: 1px solid #eab308;
+            border-bottom: none;
+            border-radius: 10px 10px 0 0;
+            z-index: 0;
+            transition: transform 0.25s ease;
+        }
+        .folder-card:hover::before {
+            transform: translateY(-3px);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .page-transition {
+            animation: fadeIn 0.35s ease-out;
+        }
+    </style>
+</head>
+<body class="antialiased flex flex-col min-h-screen">
+
+    <!-- ===================================================================== -->
+    <!-- 1. TOP CONTACT BAR & MAIN MAROON/GOLD NAVIGATION HEADER               -->
+    <!-- ===================================================================== -->
+    <div id="siteHeaderWrapper" class="sticky top-0 z-40 shadow-xl">
+        <!-- Top Info Bar -->
+        <div class="bg-[#120304] text-zinc-300 text-[11px] sm:text-xs border-b border-amber-500/20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex flex-wrap items-center justify-between gap-2">
+                <div class="flex flex-wrap items-center gap-3 sm:gap-5">
+                    <a href="tel:9042204810" class="hover:text-amber-400 flex items-center gap-1.5 transition">
+                        <i class="fa-solid fa-phone text-amber-400"></i>
+                        <span>9042204810</span>
+                    </a>
+                    <a href="https://wa.me/919443003421" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 flex items-center gap-1.5 transition">
+                        <i class="fa-brands fa-whatsapp text-emerald-400 text-sm"></i>
+                        <span>9443003421</span>
+                    </a>
+                    <a href="mailto:jonalprabin@gmail.com" class="hidden md:flex hover:text-amber-400 items-center gap-1.5 transition">
+                        <i class="fa-solid fa-envelope text-amber-400"></i>
+                        <span>jonalprabin@gmail.com</span>
+                    </a>
+                </div>
+                <div class="hidden sm:flex items-center gap-1.5 text-zinc-300">
+                    <i class="fa-solid fa-location-dot text-amber-400"></i>
+                    <span>Sree Devi Kumari Women College Opposite, Kuzhithurai</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Navigation Bar -->
+        <nav class="bg-[#230608]/95 backdrop-blur-md border-b border-amber-500/30">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+                <!-- JP Media Kuzhithurai Brand Logo -->
+                <div onclick="navigateTo('home')" class="flex items-center gap-3 cursor-pointer group">
+                    <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-amber-400 via-yellow-500 to-amber-600 p-0.5 shadow-lg shadow-amber-500/20 shrink-0">
+                        <div class="w-full h-full bg-[#1d0406] rounded-[10px] flex items-center justify-center">
+                            <i class="fa-solid fa-camera-retro text-amber-400 text-xl sm:text-2xl group-hover:scale-110 transition"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex items-baseline gap-1">
+                            <span class="font-serif text-xl sm:text-2xl font-extrabold tracking-tight gold-gradient-text leading-none">JP MEDIA</span>
+                        </div>
+                        <div class="text-[10px] sm:text-[11px] font-bold tracking-[0.2em] text-amber-300 uppercase mt-0.5">
+                            KUZHITHURAI
+                        </div>
+                        <div class="text-[9px] text-zinc-300 tracking-wider hidden sm:block">
+                            Photography & Videography
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu Links -->
+                <div class="hidden lg:flex items-center gap-7 text-sm font-semibold">
+                    <button onclick="navigateTo('home')" data-nav="home" class="nav-link text-amber-400 transition py-1 border-b-2 border-amber-400">Home</button>
+                    <button onclick="navigateTo('about')" data-nav="about" class="nav-link text-zinc-200 hover:text-amber-400 transition py-1 border-b-2 border-transparent">About</button>
+                    <button onclick="navigateTo('gallery')" data-nav="gallery" class="nav-link text-zinc-200 hover:text-amber-400 transition py-1 border-b-2 border-transparent">Gallery</button>
+                    <button onclick="navigateTo('videos')" data-nav="videos" class="nav-link text-zinc-200 hover:text-amber-400 transition py-1 border-b-2 border-transparent">Videos</button>
+                    <button onclick="navigateTo('gifts')" data-nav="gifts" class="nav-link text-zinc-200 hover:text-amber-400 transition py-1 border-b-2 border-transparent">Gift Items</button>
+                    <button onclick="navigateTo('contact')" data-nav="contact" class="nav-link text-zinc-200 hover:text-amber-400 transition py-1 border-b-2 border-transparent">Contact</button>
+                </div>
+
+                <!-- Right Actions: Book Now + Admin + Mobile Menu -->
+                <div class="flex items-center gap-2 sm:gap-3">
+                    <button onclick="navigateTo('admin')" class="px-3 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-amber-300 text-xs font-semibold flex items-center gap-1.5 border border-amber-400/30 transition" title="Owner Admin Dashboard">
+                        <i class="fa-solid fa-user-shield"></i>
+                        <span class="hidden sm:inline">Admin</span>
+                    </button>
+
+                    <button onclick="navigateTo('contact')" class="gold-btn text-black font-extrabold text-xs sm:text-sm px-4 sm:px-5 py-2.5 rounded-lg shadow-lg shadow-amber-500/25 transition transform active:scale-95">
+                        Book Now
+                    </button>
+
+                    <!-- Mobile Menu Toggle -->
+                    <button onclick="toggleMobileMenu()" class="lg:hidden w-10 h-10 rounded-lg bg-white/10 text-amber-400 flex items-center justify-center text-lg">
+                        <i id="mobileMenuIcon" class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Dropdown Menu -->
+            <div id="mobileMenu" class="hidden lg:hidden bg-[#1a0406] border-t border-amber-500/20 px-4 py-3 space-y-1">
+                <button onclick="navigateTo('home')" class="block w-full text-left px-3 py-2.5 rounded-lg text-sm font-semibold text-zinc-200 hover:bg-amber-500/10 hover:text-amber-400">Home</button>
+                <button onclick="navigateTo('about')" class="block w-full text-left px-3 py-2.5 rounded-lg text-sm font-semibold text-zinc-200 hover:bg-amber-500/10 hover:text-amber-400">About Studio</button>
+                <button onclick="navigateTo('gallery')" class="block w-full text-left px-3 py-2.5 rounded-lg text-sm font-semibold text-zinc-200 hover:bg-amber-500/10 hover:text-amber-400">Photo Gallery (Folders)</button>
+                <button onclick="navigateTo('videos')" class="block w-full text-left px-3 py-2.5 rounded-lg text-sm font-semibold text-zinc-200 hover:bg-amber-500/10 hover:text-amber-400">Videos & Highlights</button>
+                <button onclick="navigateTo('gifts')" class="block w-full text-left px-3 py-2.5 rounded-lg text-sm font-semibold text-zinc-200 hover:bg-amber-500/10 hover:text-amber-400">Personalized Gift Items</button>
+                <button onclick="navigateTo('contact')" class="block w-full text-left px-3 py-2.5 rounded-lg text-sm font-semibold text-zinc-200 hover:bg-amber-500/10 hover:text-amber-400">Contact Us</button>
+            </div>
+        </nav>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- MAIN MULTI-PAGE CONTENT CONTAINER                                     -->
+    <!-- ===================================================================== -->
+    <main id="mainContent" class="flex-grow">
+
+        <!-- ================================================================= -->
+        <!-- PAGE 1: HOME PAGE (EXACT MATCH TO REFERENCE SCREENSHOT)           -->
+        <!-- ================================================================= -->
+        <section id="page-home" class="page-view page-transition">
+            
+            <!-- Hero Banner -->
+            <div class="relative min-h-[520px] sm:min-h-[600px] lg:min-h-[640px] flex items-center bg-[#180405] overflow-hidden">
+                <!-- Background Wedding Couple & Camera Image -->
+                <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1920&q=85"
+                     onerror="this.src='https://placehold.co/1920x800/2b0808/eab308?text=JP+Media+Kuzhithurai'"
+                     alt="JP Media Wedding Photography"
+                     class="absolute inset-0 w-full h-full object-cover object-center">
+                
+                <!-- Left-to-Right Rich Dark Maroon/Black Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-r from-[#120304]/95 via-[#1f0507]/80 to-black/25"></div>
+
+                <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full flex flex-col lg:flex-row lg:items-end justify-between gap-8">
+                    <div class="max-w-xl">
+                        <span class="inline-block px-3 py-1 rounded-full bg-amber-500/15 border border-amber-400/40 text-amber-300 text-xs font-semibold tracking-widest uppercase mb-4">
+                            JP Media • Kuzhithurai
+                        </span>
+                        <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl font-extrabold text-white leading-[1.08] tracking-tight drop-shadow-lg">
+                            Capture<br>
+                            <span class="gold-gradient-text">Create</span><br>
+                            Cherish
+                        </h1>
+                        <p class="mt-5 text-xs sm:text-sm font-bold tracking-[0.22em] text-amber-200 uppercase">
+                            PHOTOGRAPHY &nbsp;|&nbsp; VIDEOGRAPHY
+                        </p>
+                        <p class="mt-1.5 text-sm sm:text-base text-zinc-200 tracking-wider font-medium">
+                            YOUR MOMENTS... OUR PASSION...
+                        </p>
+
+                        <!-- CTA Buttons -->
+                        <div class="mt-8 flex flex-wrap items-center gap-4">
+                            <button onclick="navigateTo('gallery')" class="gold-btn text-black font-extrabold text-sm px-6 py-3.5 rounded-lg shadow-xl shadow-amber-500/25 flex items-center gap-2 transition transform hover:-translate-y-0.5">
+                                <span>View Gallery</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                            <button onclick="navigateTo('videos')" class="bg-[#7f1119] hover:bg-[#99151f] border border-amber-400/40 text-white font-bold text-sm px-6 py-3.5 rounded-lg shadow-xl flex items-center gap-2 transition transform hover:-translate-y-0.5">
+                                <span>Watch Videos</span>
+                                <i class="fa-solid fa-circle-play text-amber-400"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Script Tagline on Bottom Right -->
+                    <div class="self-end text-right hidden sm:block">
+                        <p class="font-script text-3xl lg:text-4xl text-amber-200/90 drop-shadow-md transform -rotate-3">
+                            Better Photos<br>Bigger Memories <i class="fa-regular fa-heart text-lg text-amber-400"></i>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6-Icon Golden Strip -->
+            <div class="bg-[#180405] border-y border-amber-500/30 py-6">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 text-center">
+                        <div onclick="openGalleryCategory('Wedding')" class="group cursor-pointer p-3 rounded-xl hover:bg-white/5 transition">
+                            <div class="w-12 h-12 mx-auto rounded-full border border-amber-400/50 bg-amber-500/10 flex items-center justify-center text-amber-400 text-xl group-hover:bg-amber-400 group-hover:text-black transition">
+                                <i class="fa-solid fa-rings-wedding"></i>
+                                <i class="fa-solid fa-heart text-base"></i>
+                            </div>
+                            <p class="mt-2.5 text-xs font-semibold text-zinc-200 group-hover:text-amber-400">Wedding Photography</p>
+                        </div>
+
+                        <div onclick="openGalleryCategory('Candid')" class="group cursor-pointer p-3 rounded-xl hover:bg-white/5 transition">
+                            <div class="w-12 h-12 mx-auto rounded-full border border-amber-400/50 bg-amber-500/10 flex items-center justify-center text-amber-400 text-xl group-hover:bg-amber-400 group-hover:text-black transition">
+                                <i class="fa-solid fa-camera"></i>
+                            </div>
+                            <p class="mt-2.5 text-xs font-semibold text-zinc-200 group-hover:text-amber-400">Candid Photography</p>
+                        </div>
+
+                        <div onclick="openGalleryCategory('Events')" class="group cursor-pointer p-3 rounded-xl hover:bg-white/5 transition">
+                            <div class="w-12 h-12 mx-auto rounded-full border border-amber-400/50 bg-amber-500/10 flex items-center justify-center text-amber-400 text-xl group-hover:bg-amber-400 group-hover:text-black transition">
+                                <i class="fa-solid fa-video"></i>
+                            </div>
+                            <p class="mt-2.5 text-xs font-semibold text-zinc-200 group-hover:text-amber-400">Event Coverage</p>
+                        </div>
+
+                        <div onclick="openGalleryCategory('Events')" class="group cursor-pointer p-3 rounded-xl hover:bg-white/5 transition">
+                            <div class="w-12 h-12 mx-auto rounded-full border border-amber-400/50 bg-amber-500/10 flex items-center justify-center text-amber-400 text-xl group-hover:bg-amber-400 group-hover:text-black transition">
+                                <i class="fa-solid fa-helicopter"></i>
+                            </div>
+                            <p class="mt-2.5 text-xs font-semibold text-zinc-200 group-hover:text-amber-400">Drone Videography</p>
+                        </div>
+
+                        <div onclick="openGalleryCategory('Pre-Wedding')" class="group cursor-pointer p-3 rounded-xl hover:bg-white/5 transition">
+                            <div class="w-12 h-12 mx-auto rounded-full border border-amber-400/50 bg-amber-500/10 flex items-center justify-center text-amber-400 text-xl group-hover:bg-amber-400 group-hover:text-black transition">
+                                <i class="fa-solid fa-people-arrows"></i>
+                            </div>
+                            <p class="mt-2.5 text-xs font-semibold text-zinc-200 group-hover:text-amber-400">Pre-Wedding Shoots</p>
+                        </div>
+
+                        <div onclick="navigateTo('gifts')" class="group cursor-pointer p-3 rounded-xl hover:bg-white/5 transition">
+                            <div class="w-12 h-12 mx-auto rounded-full border border-amber-400/50 bg-amber-500/10 flex items-center justify-center text-amber-400 text-xl group-hover:bg-amber-400 group-hover:text-black transition">
+                                <i class="fa-solid fa-gift"></i>
+                            </div>
+                            <p class="mt-2.5 text-xs font-semibold text-zinc-200 group-hover:text-amber-400">Photo Gifts & Frames</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Our Services Section (Clean White Background) -->
+            <div class="py-14 sm:py-16 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-2xl mx-auto mb-10">
+                        <h2 class="font-serif text-3xl sm:text-4xl font-extrabold text-[#2b0808]">Our Services</h2>
+                        <div class="w-16 h-1 bg-amber-500 mx-auto my-3 rounded-full"></div>
+                        <p class="text-sm sm:text-base text-zinc-600 font-medium">
+                            Professional Photography & Videography Services
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-5">
+                        <!-- Service 1 -->
+                        <div onclick="openGalleryCategory('Wedding')" class="group cursor-pointer rounded-xl overflow-hidden shadow-md hover:shadow-xl border border-zinc-200 transition">
+                            <div class="aspect-[3/4] overflow-hidden bg-zinc-100">
+                                <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=600&q=80" alt="Wedding Photography" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            </div>
+                            <div class="bg-[#230608] text-white text-center py-3 px-2 font-bold text-xs sm:text-sm group-hover:text-amber-400 transition">
+                                Wedding Photography
+                            </div>
+                        </div>
+
+                        <!-- Service 2 -->
+                        <div onclick="openGalleryCategory('Candid')" class="group cursor-pointer rounded-xl overflow-hidden shadow-md hover:shadow-xl border border-zinc-200 transition">
+                            <div class="aspect-[3/4] overflow-hidden bg-zinc-100">
+                                <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=600&q=80" alt="Candid Photography" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            </div>
+                            <div class="bg-[#230608] text-white text-center py-3 px-2 font-bold text-xs sm:text-sm group-hover:text-amber-400 transition">
+                                Candid Photography
+                            </div>
+                        </div>
+
+                        <!-- Service 3 -->
+                        <div onclick="openGalleryCategory('Puberty Function')" class="group cursor-pointer rounded-xl overflow-hidden shadow-md hover:shadow-xl border border-zinc-200 transition">
+                            <div class="aspect-[3/4] overflow-hidden bg-zinc-100">
+                                <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=600&q=80" alt="Puberty & Events" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            </div>
+                            <div class="bg-[#230608] text-white text-center py-3 px-2 font-bold text-xs sm:text-sm group-hover:text-amber-400 transition">
+                                Puberty & Events
+                            </div>
+                        </div>
+
+                        <!-- Service 4 -->
+                        <div onclick="openGalleryCategory('Pre-Wedding')" class="group cursor-pointer rounded-xl overflow-hidden shadow-md hover:shadow-xl border border-zinc-200 transition">
+                            <div class="aspect-[3/4] overflow-hidden bg-zinc-100">
+                                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80" alt="Pre-Wedding Shoots" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            </div>
+                            <div class="bg-[#230608] text-white text-center py-3 px-2 font-bold text-xs sm:text-sm group-hover:text-amber-400 transition">
+                                Pre-Wedding Shoots
+                            </div>
+                        </div>
+
+                        <!-- Service 5 -->
+                        <div onclick="openGalleryCategory('Birthdays')" class="group cursor-pointer rounded-xl overflow-hidden shadow-md hover:shadow-xl border border-zinc-200 transition">
+                            <div class="aspect-[3/4] overflow-hidden bg-zinc-100">
+                                <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=600&q=80" alt="Birthday & Baby Shoot" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            </div>
+                            <div class="bg-[#230608] text-white text-center py-3 px-2 font-bold text-xs sm:text-sm group-hover:text-amber-400 transition">
+                                Birthday & Baby Shoot
+                            </div>
+                        </div>
+
+                        <!-- Service 6 -->
+                        <div onclick="openGalleryCategory('Portraits')" class="group cursor-pointer rounded-xl overflow-hidden shadow-md hover:shadow-xl border border-zinc-200 transition">
+                            <div class="aspect-[3/4] overflow-hidden bg-zinc-100">
+                                <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=600&q=80" alt="Model & Portraits" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            </div>
+                            <div class="bg-[#230608] text-white text-center py-3 px-2 font-bold text-xs sm:text-sm group-hover:text-amber-400 transition">
+                                Model & Portraits
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Personalized Gift Items Section (Deep Crimson/Maroon Background) -->
+            <div class="py-14 sm:py-16 bg-gradient-to-b from-[#6e0f18] to-[#3d070c] text-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-2xl mx-auto mb-10">
+                        <h2 class="font-serif text-3xl sm:text-4xl font-extrabold text-white">Personalized Gift Items</h2>
+                        <div class="w-16 h-1 bg-amber-400 mx-auto my-3 rounded-full"></div>
+                        <p class="text-sm sm:text-base text-amber-100/90">
+                            Unique gifts to make your memories special
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-5">
+                        <!-- Gift Preview Cards -->
+                        <div onclick="navigateTo('gifts')" class="bg-white rounded-xl overflow-hidden shadow-lg cursor-pointer group">
+                            <div class="aspect-square p-3 bg-zinc-50 flex items-center justify-center overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=500&q=80" alt="Photo Frames" class="w-full h-full object-cover rounded-lg group-hover:scale-105 transition">
+                            </div>
+                            <div class="p-3 text-center bg-white text-zinc-900 font-bold text-xs sm:text-sm border-t border-zinc-100">
+                                Photo Frames
+                            </div>
+                        </div>
+
+                        <div onclick="navigateTo('gifts')" class="bg-white rounded-xl overflow-hidden shadow-lg cursor-pointer group">
+                            <div class="aspect-square p-3 bg-zinc-50 flex items-center justify-center overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=500&q=80" alt="Acrylic Frames" class="w-full h-full object-cover rounded-lg group-hover:scale-105 transition">
+                            </div>
+                            <div class="p-3 text-center bg-white text-zinc-900 font-bold text-xs sm:text-sm border-t border-zinc-100">
+                                Acrylic Frames
+                            </div>
+                        </div>
+
+                        <div onclick="navigateTo('gifts')" class="bg-white rounded-xl overflow-hidden shadow-lg cursor-pointer group">
+                            <div class="aspect-square p-3 bg-zinc-50 flex items-center justify-center overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?auto=format&fit=crop&w=500&q=80" alt="Printed Mugs" class="w-full h-full object-cover rounded-lg group-hover:scale-105 transition">
+                            </div>
+                            <div class="p-3 text-center bg-white text-zinc-900 font-bold text-xs sm:text-sm border-t border-zinc-100">
+                                Printed Mugs
+                            </div>
+                        </div>
+
+                        <div onclick="navigateTo('gifts')" class="bg-white rounded-xl overflow-hidden shadow-lg cursor-pointer group">
+                            <div class="aspect-square p-3 bg-zinc-50 flex items-center justify-center overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1611085583191-a3b181a88401?auto=format&fit=crop&w=500&q=80" alt="Keychains" class="w-full h-full object-cover rounded-lg group-hover:scale-105 transition">
+                            </div>
+                            <div class="p-3 text-center bg-white text-zinc-900 font-bold text-xs sm:text-sm border-t border-zinc-100">
+                                Keychains
+                            </div>
+                        </div>
+
+                        <div onclick="navigateTo('gifts')" class="bg-white rounded-xl overflow-hidden shadow-lg cursor-pointer group">
+                            <div class="aspect-square p-3 bg-zinc-50 flex items-center justify-center overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1506784365847-bbad939e9335?auto=format&fit=crop&w=500&q=80" alt="Photo Calendar" class="w-full h-full object-cover rounded-lg group-hover:scale-105 transition">
+                            </div>
+                            <div class="p-3 text-center bg-white text-zinc-900 font-bold text-xs sm:text-sm border-t border-zinc-100">
+                                Photo Calendar
+                            </div>
+                        </div>
+
+                        <div onclick="navigateTo('gifts')" class="bg-white rounded-xl overflow-hidden shadow-lg cursor-pointer group">
+                            <div class="aspect-square p-3 bg-zinc-50 flex items-center justify-center overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=500&q=80" alt="Acrylic Cutout" class="w-full h-full object-cover rounded-lg group-hover:scale-105 transition">
+                            </div>
+                            <div class="p-3 text-center bg-white text-zinc-900 font-bold text-xs sm:text-sm border-t border-zinc-100">
+                                Acrylic Cutout
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-9 text-center">
+                        <button onclick="navigateTo('gifts')" class="gold-btn text-black font-extrabold text-sm px-7 py-3 rounded-lg shadow-lg inline-flex items-center gap-2 transition">
+                            <span>View All Gift Items</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Strip & Why Choose JP Media -->
+            <div class="bg-[#140304] text-white border-t border-amber-500/30">
+                <!-- 4 Key Counters -->
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 border-b border-white/10">
+                    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+                        <div class="flex items-center justify-center gap-3">
+                            <i class="fa-solid fa-users text-amber-400 text-2xl sm:text-3xl"></i>
+                            <div class="text-left">
+                                <div class="text-xl sm:text-2xl font-extrabold text-amber-400">500+</div>
+                                <div class="text-xs text-zinc-300">Happy Clients</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-center gap-3">
+                            <i class="fa-solid fa-camera-retro text-amber-400 text-2xl sm:text-3xl"></i>
+                            <div class="text-left">
+                                <div class="text-xl sm:text-2xl font-extrabold text-amber-400">1000+</div>
+                                <div class="text-xs text-zinc-300">Projects Completed</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-center gap-3">
+                            <i class="fa-solid fa-award text-amber-400 text-2xl sm:text-3xl"></i>
+                            <div class="text-left">
+                                <div class="text-xl sm:text-2xl font-extrabold text-amber-400">5+</div>
+                                <div class="text-xs text-zinc-300">Years Experience</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-center gap-3">
+                            <i class="fa-solid fa-circle-check text-amber-400 text-2xl sm:text-3xl"></i>
+                            <div class="text-left">
+                                <div class="text-xl sm:text-2xl font-extrabold text-amber-400">100%</div>
+                                <div class="text-xs text-zinc-300">Customer Satisfaction</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Why Choose JP Media -->
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
+                    <h3 class="font-serif text-2xl sm:text-3xl font-bold text-amber-400 mb-8">Why Choose JP Media?</h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+                        <div class="p-4 rounded-2xl bg-white/5 border border-amber-500/20">
+                            <i class="fa-solid fa-camera text-amber-400 text-2xl mb-3"></i>
+                            <p class="text-xs sm:text-sm font-semibold text-zinc-100">High Quality Photography</p>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-white/5 border border-amber-500/20">
+                            <i class="fa-solid fa-wand-magic-sparkles text-amber-400 text-2xl mb-3"></i>
+                            <p class="text-xs sm:text-sm font-semibold text-zinc-100">Creative Editing</p>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-white/5 border border-amber-500/20">
+                            <i class="fa-solid fa-clock text-amber-400 text-2xl mb-3"></i>
+                            <p class="text-xs sm:text-sm font-semibold text-zinc-100">On-Time Delivery</p>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-white/5 border border-amber-500/20">
+                            <i class="fa-solid fa-tags text-amber-400 text-2xl mb-3"></i>
+                            <p class="text-xs sm:text-sm font-semibold text-zinc-100">Affordable Packages</p>
+                        </div>
+                        <div class="col-span-2 sm:col-span-1 p-4 rounded-2xl bg-white/5 border border-amber-500/20">
+                            <i class="fa-solid fa-headset text-amber-400 text-2xl mb-3"></i>
+                            <p class="text-xs sm:text-sm font-semibold text-zinc-100">Friendly Support</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================================= -->
+        <!-- PAGE 2: ABOUT STUDIO PAGE                                         -->
+        <!-- ================================================================= -->
+        <section id="page-about" class="page-view hidden page-transition">
+            <!-- Subpage Dark Banner -->
+            <div class="relative py-14 bg-[#1a0406] text-center text-white border-b border-amber-500/30 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1600&q=80" alt="About Banner" class="absolute inset-0 w-full h-full object-cover opacity-25">
+                <div class="relative z-10 max-w-4xl mx-auto px-4">
+                    <h1 class="font-serif text-3xl sm:text-5xl font-extrabold text-white">About JP Media</h1>
+                    <p class="text-xs sm:text-sm text-amber-400 mt-2 font-medium">
+                        <span onclick="navigateTo('home')" class="cursor-pointer hover:underline">Home</span> &nbsp;&gt;&nbsp; About Us
+                    </p>
+                </div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-amber-500/30">
+                        <img src="https://images.unsplash.com/photo-1554048612-b6a482bc67e5?auto=format&fit=crop&w=1000&q=85" alt="JP Media Photographer" class="w-full h-full object-cover">
+                        <div class="absolute bottom-4 left-4 bg-[#230608]/95 text-white px-4 py-2.5 rounded-xl border border-amber-400/40">
+                            <p class="text-xs text-amber-400 font-bold">Lead Photographer & Founder</p>
+                            <p class="text-sm font-extrabold">JP Media Kuzhithurai</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-amber-600">Our Story & Passion</span>
+                        <h2 class="font-serif text-3xl sm:text-4xl font-extrabold text-[#2b0808] mt-1">
+                            Capturing Emotions, Crafting Timeless Memories
+                        </h2>
+                        <p class="text-zinc-600 mt-4 leading-relaxed text-sm sm:text-base">
+                            Located opposite Sree Devi Kumari Women College in Kuzhithurai, <strong>JP Media Photography & Videography</strong> is dedicated to turning your life's biggest milestones into cinematic art.
+                        </p>
+                        <p class="text-zinc-600 mt-3 leading-relaxed text-sm sm:text-base">
+                            திருமணம் (Wedding), பூப்புனித நீராட்டு விழா (Puberty Function), பிறந்தநாள் (Birthday), அவுட்டோர் & மாடல் போட்டோஷூட் என அனைத்து நிகழ்வுகளையும் அதிநவீன 4K கேமராக்கள் மற்றும் ட்ரோன் மூலம் மிகத் துல்லியமாகப் படம்பிடித்துத் தருகிறோம்.
+                        </p>
+
+                        <div class="grid grid-cols-2 gap-4 mt-6">
+                            <div class="p-4 rounded-xl bg-amber-50 border border-amber-200">
+                                <h4 class="font-bold text-[#2b0808] text-sm">4K Candid & Traditional</h4>
+                                <p class="text-xs text-zinc-600 mt-1">Latest Sony & Canon full-frame cinema gear.</p>
+                            </div>
+                            <div class="p-4 rounded-xl bg-amber-50 border border-amber-200">
+                                <h4 class="font-bold text-[#2b0808] text-sm">Custom Gift Studio</h4>
+                                <p class="text-xs text-zinc-600 mt-1">In-house photo frames, mugs & acrylic gifts.</p>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 flex gap-4">
+                            <button onclick="navigateTo('gallery')" class="gold-btn text-black font-bold text-sm px-6 py-3 rounded-lg shadow">
+                                Explore Photo Folders
+                            </button>
+                            <button onclick="navigateTo('contact')" class="bg-[#2b0808] text-white font-bold text-sm px-6 py-3 rounded-lg">
+                                Contact Studio
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================================= -->
+        <!-- PAGE 3: PHOTO GALLERY PAGE (FOLDER VIEW + CATEGORY TABS + LIKES)  -->
+        <!-- ================================================================= -->
+        <section id="page-gallery" class="page-view hidden page-transition">
+            <!-- Banner Header matching Screenshot 2 -->
+            <div class="relative py-14 bg-[#1a0406] text-center text-white border-b border-amber-500/30 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1600&q=80" alt="Photo Gallery Banner" class="absolute inset-0 w-full h-full object-cover opacity-30">
+                <div class="relative z-10 max-w-4xl mx-auto px-4">
+                    <h1 class="font-serif text-3xl sm:text-5xl font-extrabold text-white">Photo Gallery</h1>
+                    <p class="text-xs sm:text-sm text-amber-400 mt-2 font-medium">
+                        <span onclick="navigateTo('home')" class="cursor-pointer hover:underline">Home</span> &nbsp;&gt;&nbsp; Gallery
+                    </p>
+                </div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+                <!-- Top Controls: Category Filter Pills + Folder/All Grid View Switcher -->
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-zinc-200">
+                    <!-- Category Tabs (matching screenshot + Puberty Function) -->
+                    <div id="galleryCategoryTabs" class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
+                        <!-- Rendered dynamically -->
+                    </div>
+
+                    <!-- View Mode Switcher: Folders vs Grid -->
+                    <div class="flex items-center gap-2 shrink-0 self-start md:self-auto">
+                        <button id="btnFolderMode" onclick="setGalleryViewMode('folders')" class="px-3.5 py-2 rounded-lg text-xs font-bold flex items-center gap-1.5 bg-[#230608] text-amber-400 border border-amber-500/40">
+                            <i class="fa-solid fa-folder-open"></i>
+                            <span>Album Folders</span>
+                        </button>
+                        <button id="btnGridMode" onclick="setGalleryViewMode('grid')" class="px-3.5 py-2 rounded-lg text-xs font-bold flex items-center gap-1.5 bg-zinc-100 text-zinc-700 hover:bg-zinc-200">
+                            <i class="fa-solid fa-grip"></i>
+                            <span>All Photos</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Folder Breadcrumb Banner (shown when a specific folder is opened) -->
+                <div id="activeFolderBanner" class="hidden mt-6 p-4 rounded-xl bg-amber-50 border border-amber-200 flex flex-wrap items-center justify-between gap-3">
+                    <div class="flex items-center gap-3">
+                        <button onclick="setGalleryViewMode('folders')" class="px-3 py-1.5 rounded-lg bg-[#230608] text-amber-400 text-xs font-bold flex items-center gap-1.5">
+                            <i class="fa-solid fa-arrow-left"></i> All Folders
+                        </button>
+                        <div>
+                            <h3 id="folderHeadingText" class="font-bold text-[#2b0808] text-base">Wedding Album</h3>
+                            <p id="folderSubText" class="text-xs text-zinc-600">Click any photo to view full screen, Like, or enquire on WhatsApp.</p>
+                        </div>
+                    </div>
+                    <button id="folderWhatsAppBookBtn" class="px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold flex items-center gap-1.5">
+                        <i class="fa-brands fa-whatsapp text-sm"></i> Book This Shoot
+                    </button>
+                </div>
+
+                <!-- Dynamic Gallery Content Container (Folders OR Photos Grid) -->
+                <div id="galleryDisplayContainer" class="mt-8">
+                    <!-- Injected via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================================= -->
+        <!-- PAGE 4: VIDEOS PAGE (MATCHING SCREENSHOT 3)                       -->
+        <!-- ================================================================= -->
+        <section id="page-videos" class="page-view hidden page-transition">
+            <div class="relative py-14 bg-[#1a0406] text-center text-white border-b border-amber-500/30 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1600&q=80" alt="Videos Banner" class="absolute inset-0 w-full h-full object-cover opacity-30">
+                <div class="relative z-10 max-w-4xl mx-auto px-4">
+                    <h1 class="font-serif text-3xl sm:text-5xl font-extrabold text-white">Videos</h1>
+                    <p class="text-xs sm:text-sm text-amber-400 mt-2 font-medium">
+                        <span onclick="navigateTo('home')" class="cursor-pointer hover:underline">Home</span> &nbsp;&gt;&nbsp; Videos
+                    </p>
+                </div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+                <!-- Video Filter Tabs -->
+                <div id="videoCategoryTabs" class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-4 border-b border-zinc-200">
+                    <!-- Rendered dynamically -->
+                </div>
+
+                <!-- Videos Grid -->
+                <div id="videosGridContainer" class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Rendered dynamically -->
+                </div>
+
+                <!-- YouTube & Instagram Channel Banner -->
+                <div class="mt-12 rounded-2xl maroon-gradient p-6 sm:p-8 text-white flex flex-col sm:flex-row items-center justify-between gap-4 border border-amber-500/30">
+                    <div>
+                        <h3 class="font-serif text-xl sm:text-2xl font-bold text-amber-400">Watch Full 4K Wedding Films & Reels</h3>
+                        <p class="text-xs sm:text-sm text-zinc-300 mt-1">Subscribe to JP Media Kuzhithurai on YouTube & follow us on Instagram for latest edits.</p>
+                    </div>
+                    <div class="flex items-center gap-3 shrink-0">
+                        <a id="vidPageYoutubeBtn" href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-lg bg-red-600 hover:bg-red-500 text-white text-xs sm:text-sm font-bold flex items-center gap-2">
+                            <i class="fa-brands fa-youtube text-base"></i> YouTube
+                        </a>
+                        <a id="vidPageInstaBtn" href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 text-white text-xs sm:text-sm font-bold flex items-center gap-2">
+                            <i class="fa-brands fa-instagram text-base"></i> Instagram
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================================= -->
+        <!-- PAGE 5: GIFT ITEMS PAGE (MATCHING SCREENSHOT 4 + WHATSAPP ORDER)  -->
+        <!-- ================================================================= -->
+        <section id="page-gifts" class="page-view hidden page-transition">
+            <div class="relative py-14 bg-[#1a0406] text-center text-white border-b border-amber-500/30 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=1600&q=80" alt="Gift Items Banner" class="absolute inset-0 w-full h-full object-cover opacity-30">
+                <div class="relative z-10 max-w-4xl mx-auto px-4">
+                    <h1 class="font-serif text-3xl sm:text-5xl font-extrabold text-white">Gift Items</h1>
+                    <p class="text-xs sm:text-sm text-amber-400 mt-2 font-medium">
+                        <span onclick="navigateTo('home')" class="cursor-pointer hover:underline">Home</span> &nbsp;&gt;&nbsp; Gift Items
+                    </p>
+                </div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+                <!-- Gift Filter Tabs -->
+                <div id="giftCategoryTabs" class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-4 border-b border-zinc-200">
+                    <!-- Rendered dynamically -->
+                </div>
+
+                <!-- Gift Products Grid -->
+                <div id="giftsGridContainer" class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Rendered dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================================= -->
+        <!-- PAGE 6: CONTACT US PAGE (MATCHING SCREENSHOT 5)                   -->
+        <!-- ================================================================= -->
+        <section id="page-contact" class="page-view hidden page-transition">
+            <div class="relative py-14 bg-[#1a0406] text-center text-white border-b border-amber-500/30 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1600&q=80" alt="Contact Banner" class="absolute inset-0 w-full h-full object-cover opacity-25">
+                <div class="relative z-10 max-w-4xl mx-auto px-4">
+                    <h1 class="font-serif text-3xl sm:text-5xl font-extrabold text-white">Contact Us</h1>
+                    <p class="text-xs sm:text-sm text-amber-400 mt-2 font-medium">
+                        <span onclick="navigateTo('home')" class="cursor-pointer hover:underline">Home</span> &nbsp;&gt;&nbsp; Contact
+                    </p>
+                </div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                    <!-- Left Column: Get In Touch + Kuzhithurai Map -->
+                    <div>
+                        <h2 class="font-serif text-2xl sm:text-3xl font-extrabold text-[#2b0808] mb-6">Get In Touch</h2>
+                        <div class="space-y-5">
+                            <div class="flex items-start gap-4">
+                                <div class="w-11 h-11 rounded-full bg-[#6e0f18] text-amber-400 flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-zinc-900 text-sm">Phone & WhatsApp</h4>
+                                    <p class="text-sm text-zinc-600 mt-0.5">9042204810</p>
+                                    <p class="text-sm text-emerald-700 font-semibold">9443003421 (WhatsApp)</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-11 h-11 rounded-full bg-[#6e0f18] text-amber-400 flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-zinc-900 text-sm">Email</h4>
+                                    <p class="text-sm text-zinc-600 mt-0.5">jonalprabin@gmail.com</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-11 h-11 rounded-full bg-[#6e0f18] text-amber-400 flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-zinc-900 text-sm">Location</h4>
+                                    <p class="text-sm text-zinc-600 mt-0.5">
+                                        Sree Devi Kumari Women College Opposite,<br>
+                                        Kuzhithurai, Kanyakumari District
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-11 h-11 rounded-full bg-[#6e0f18] text-amber-400 flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-clock"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-zinc-900 text-sm">Working Hours</h4>
+                                    <p class="text-sm text-zinc-600 mt-0.5">Mon - Sat : 9.00 AM - 8.00 PM</p>
+                                    <p class="text-sm text-zinc-600">Sunday : 10.00 AM - 6.00 PM</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Social Media Buttons -->
+                        <div class="flex items-center gap-3 mt-7">
+                            <a id="contactInstaLink" href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-gradient-to-tr from-purple-600 to-pink-600 text-white flex items-center justify-center shadow hover:scale-110 transition">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center shadow hover:scale-110 transition">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                            <a id="contactYoutubeLink" href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-red-600 text-white flex items-center justify-center shadow hover:scale-110 transition">
+                                <i class="fa-brands fa-youtube"></i>
+                            </a>
+                            <a href="https://wa.me/919443003421" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-emerald-600 text-white flex items-center justify-center shadow hover:scale-110 transition">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Enquiry Form + Map Card -->
+                    <div class="space-y-6">
+                        <div class="bg-zinc-50 border border-zinc-200 rounded-2xl p-6 sm:p-8 shadow-sm">
+                            <h3 class="font-serif text-xl font-bold text-[#2b0808] mb-4">Send Us a Message / Book Shoot</h3>
+                            <form onsubmit="submitContactForm(event)" class="space-y-4">
+                                <div>
+                                    <input type="text" id="contactName" required placeholder="Your Name (உங்கள் பெயர்)"
+                                           class="w-full px-4 py-3 rounded-xl bg-white border border-zinc-300 text-sm focus:outline-none focus:border-amber-500">
+                                </div>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    <input type="tel" id="contactPhone" required placeholder="Your Phone Number"
+                                           class="w-full px-4 py-3 rounded-xl bg-white border border-zinc-300 text-sm focus:outline-none focus:border-amber-500">
+                                    <select id="contactEventType"
+                                            class="w-full px-4 py-3 rounded-xl bg-white border border-zinc-300 text-sm focus:outline-none focus:border-amber-500">
+                                        <option value="Wedding Photography">Wedding Photography</option>
+                                        <option value="Puberty Function">Puberty Function (பூப்புனித நீராட்டு)</option>
+                                        <option value="Pre-Wedding Shoot">Pre-Wedding Shoot</option>
+                                        <option value="Birthday / Baby Shoot">Birthday / Baby Shoot</option>
+                                        <option value="Personalized Gift Frame">Personalized Gift Frame</option>
+                                        <option value="Other Event">Other Event</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <textarea id="contactMsg" rows="4" required placeholder="Your Message (நிகழ்வு தேதி & விவரங்கள்)"
+                                              class="w-full px-4 py-3 rounded-xl bg-white border border-zinc-300 text-sm focus:outline-none focus:border-amber-500"></textarea>
+                                </div>
+                                <button type="submit"
+                                        class="w-full py-3.5 rounded-xl bg-[#7f1119] hover:bg-[#9c1620] text-white font-bold text-sm flex items-center justify-center gap-2 shadow-lg transition">
+                                    <i class="fa-brands fa-whatsapp text-lg text-emerald-400"></i>
+                                    <span>Send Message via WhatsApp</span>
+                                </button>
+                            </form>
+                        </div>
+
+                        <!-- Kuzhithurai Google Map Preview Card -->
+                        <div class="rounded-2xl overflow-hidden border border-zinc-200 shadow-sm bg-zinc-100">
+                            <iframe title="JP Media Kuzhithurai Location"
+                                    src="https://www.openstreetmap.org/export/embed.html?bbox=77.1850%2C8.3120%2C77.2050%2C8.3260&layer=mapnik&marker=8.3190%2C77.1950"
+                                    class="w-full h-44 border-0"></iframe>
+                            <div class="px-4 py-2.5 bg-white flex items-center justify-between text-xs">
+                                <span class="font-semibold text-zinc-700"><i class="fa-solid fa-location-dot text-red-600 mr-1"></i> Sree Devi Kumari Women College Opp, Kuzhithurai</span>
+                                <a href="https://maps.google.com/?q=Sree+Devi+Kumari+Women+College+Kuzhithurai" target="_blank" rel="noopener noreferrer" class="text-amber-600 font-bold hover:underline">Open Map →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================================= -->
+        <!-- PAGE 7: ADMIN DASHBOARD (MATCHING SCREENSHOT 6 BOTTOM RIGHT)      -->
+        <!-- ================================================================= -->
+        <section id="page-admin" class="page-view hidden page-transition bg-zinc-100 min-h-[80vh]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                <div class="flex flex-col lg:flex-row gap-6">
+                    <!-- Dark Maroon Admin Sidebar -->
+                    <aside class="lg:w-64 bg-[#1c0406] text-white rounded-2xl p-5 shrink-0 shadow-xl">
+                        <div class="flex items-center gap-2.5 pb-5 border-b border-white/10">
+                            <i class="fa-solid fa-camera-retro text-amber-400 text-xl"></i>
+                            <div>
+                                <div class="font-serif font-extrabold text-amber-400 text-base leading-none">JP MEDIA</div>
+                                <div class="text-[10px] text-zinc-400 tracking-wider mt-0.5">ADMIN PANEL</div>
+                            </div>
+                        </div>
+
+                        <div class="mt-5 space-y-1.5 text-sm font-medium">
+                            <button onclick="switchAdminTab('overview')" class="w-full text-left px-3.5 py-2.5 rounded-xl bg-amber-500 text-black font-bold flex items-center gap-2.5">
+                                <i class="fa-solid fa-gauge"></i> Dashboard
+                            </button>
+                            <button onclick="switchAdminTab('add-photo')" class="w-full text-left px-3.5 py-2.5 rounded-xl hover:bg-white/10 text-zinc-200 flex items-center gap-2.5">
+                                <i class="fa-solid fa-images text-amber-400"></i> Add Gallery Photo
+                            </button>
+                            <button onclick="switchAdminTab('add-gift')" class="w-full text-left px-3.5 py-2.5 rounded-xl hover:bg-white/10 text-zinc-200 flex items-center gap-2.5">
+                                <i class="fa-solid fa-gift text-amber-400"></i> Add Gift Product
+                            </button>
+                            <button onclick="switchAdminTab('settings')" class="w-full text-left px-3.5 py-2.5 rounded-xl hover:bg-white/10 text-zinc-200 flex items-center gap-2.5">
+                                <i class="fa-solid fa-sliders text-amber-400"></i> Social & Links
+                            </button>
+                            <button onclick="navigateTo('home')" class="w-full text-left px-3.5 py-2.5 rounded-xl hover:bg-red-500/20 text-red-300 flex items-center gap-2.5 mt-4">
+                                <i class="fa-solid fa-arrow-right-from-bracket"></i> Exit Admin
+                            </button>
+                        </div>
+                    </aside>
+
+                    <!-- Admin Main Content -->
+                    <div class="flex-grow space-y-6">
+                        <!-- Top Welcome Bar -->
+                        <div class="bg-white rounded-2xl p-5 shadow-sm border border-zinc-200 flex items-center justify-between">
+                            <div>
+                                <h2 class="text-xl font-extrabold text-zinc-900">Dashboard</h2>
+                                <p class="text-xs text-zinc-500">Manage JP Media Kuzhithurai Photos, Gifts & Enquiries</p>
+                            </div>
+                            <span class="px-3 py-1.5 rounded-full bg-amber-100 text-amber-800 text-xs font-bold">
+                                <i class="fa-solid fa-circle-user mr-1"></i> Welcome, Admin
+                            </span>
+                        </div>
+
+                        <!-- 4 Dashboard Summary Cards -->
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                            <div class="bg-blue-50 border border-blue-200 rounded-2xl p-4 flex items-center gap-3">
+                                <div class="w-11 h-11 rounded-xl bg-blue-600 text-white flex items-center justify-center text-lg">
+                                    <i class="fa-solid fa-image"></i>
+                                </div>
+                                <div>
+                                    <div id="adminPhotoCount" class="text-2xl font-extrabold text-blue-900">126</div>
+                                    <div class="text-xs text-blue-700 font-medium">Gallery Photos</div>
+                                </div>
+                            </div>
+
+                            <div class="bg-rose-50 border border-rose-200 rounded-2xl p-4 flex items-center gap-3">
+                                <div class="w-11 h-11 rounded-xl bg-rose-600 text-white flex items-center justify-center text-lg">
+                                    <i class="fa-solid fa-video"></i>
+                                </div>
+                                <div>
+                                    <div class="text-2xl font-extrabold text-rose-900">32</div>
+                                    <div class="text-xs text-rose-700 font-medium">Videos</div>
+                                </div>
+                            </div>
+
+                            <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-4 flex items-center gap-3">
+                                <div class="w-11 h-11 rounded-xl bg-emerald-600 text-white flex items-center justify-center text-lg">
+                                    <i class="fa-solid fa-gift"></i>
+                                </div>
+                                <div>
+                                    <div id="adminGiftCount" class="text-2xl font-extrabold text-emerald-900">18</div>
+                                    <div class="text-xs text-emerald-700 font-medium">Gift Products</div>
+                               
